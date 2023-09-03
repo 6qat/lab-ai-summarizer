@@ -2,20 +2,22 @@ import { linkIcon } from "../assets";
 import { useState } from "react";
 
 const Demo = () => {
+  // eslint-disable-next-line no-unused-vars
   const [article, setArticle] = useState({
     url: "",
     summary: "",
   });
 
+  // eslint-disable-next-line no-unused-vars
   const handleSubmit = (e) => {
-    e.preventDefault();
+    alert("Submitted");
   };
 
   return (
     <section className="mt-16 w-full max-w-xl">
-      <div className="flex flex-col w-full gap-2">
+      <div className="flex w-full flex-col gap-2">
         <form
-          className="relative flex justify-center items-center"
+          className="relative flex items-center justify-center"
           onSubmit={() => {}}
         >
           <img
@@ -33,9 +35,7 @@ const Demo = () => {
           />
           <button
             type="submit"
-            className="submit_btn
-              peer-focus:border-gray-700
-              peer-focus:text-gray-700"
+            className="submit_btn peer-focus:border-gray-700 peer-focus:text-gray-700"
           >
             ↩
           </button>
