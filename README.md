@@ -1,8 +1,6 @@
-# React + Vite
+# 3 Apps in 7 Hours
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+https://www.youtube.com/watch?v=A6g8xc0MoiY
+                                           
+Original final version: https://github.com/adrianhajdin/project_ai_summarizer
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
