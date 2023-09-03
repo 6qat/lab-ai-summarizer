@@ -1,13 +1,20 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
 import './App.css'
+import Hero from './components/Hero.jsx';
+import Demo from "./components/Demo.jsx";
 
 const App = () => {
     return (
         <div>
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <main>
+                <div className="main">
+                    <div className="gradient"></div>
+                </div>
+                <div className="app">
+                    <Hero />
+                    <Demo />
+                </div>
+            </main>
+
         </div>
     );
 };
