@@ -2,13 +2,11 @@ import { linkIcon } from "../assets";
 import { useState } from "react";
 
 const Demo = () => {
-  // eslint-disable-next-line no-unused-vars
   const [article, setArticle] = useState({
     url: "",
     summary: "",
   });
 
-  // eslint-disable-next-line no-unused-vars
   const handleSubmit = () => {
     alert("Submitted");
   };
