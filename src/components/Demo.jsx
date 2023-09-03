@@ -9,7 +9,7 @@ const Demo = () => {
   });
 
   // eslint-disable-next-line no-unused-vars
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     alert("Submitted");
   };
 
@@ -18,7 +18,7 @@ const Demo = () => {
       <div className="flex w-full flex-col gap-2">
         <form
           className="relative flex items-center justify-center"
-          onSubmit={() => {}}
+          onSubmit={handleSubmit}
         >
           <img
             src={linkIcon}
@@ -28,9 +28,11 @@ const Demo = () => {
           <input
             type="url"
             placeholder="Enter a URL"
-            value=""
-            onChange={() => {}}
-            required
+            value={article.url}
+            onChange={(e) => {
+              setArticle({ ...article, url: e.target.value });
+            }}
+            // required
             className="url_input peer"
           />
           <button
