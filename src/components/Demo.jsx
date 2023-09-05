@@ -1,4 +1,4 @@
-import { linkIcon } from "../assets";
+import { copy, linkIcon, loader } from "../assets";
 import { useEffect, useState } from "react";
 import { useLazyGetSummaryQuery } from "../services/article.js";
 
@@ -68,10 +68,55 @@ const Demo = () => {
         </form>
 
         {/* Browse URL History */}
-        <div className="flex max-h-60 flex-col gap-1 overflow-y-auto">Blah</div>
+        <div className="flex max-h-60 flex-col gap-1 overflow-y-auto">
+          {allArticles.map((item, index) => (
+            <div
+              key={`link-${index}`}
+              onClick={() => setArticle(item)}
+              className="link_card"
+            >
+              <div className="copy_btn">
+                <img
+                  src={copy}
+                  alt="copy_icon"
+                  className="h-[40%] w-[40%] object-contain"
+                />
+              </div>
+              <p className="flex-1 truncate font-satoshi text-sm font-medium text-blue-700">
+                {item.url}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
 
       {/* Display results */}
+      <div className="my-10 flex max-w-full items-center justify-center">
+        {isFetching ? (
+          <img src={loader} alt="loader" className="h-10 w-10 object-contain" />
+        ) : error ? (
+          <p className="text-center font-inter font-bold text-black">
+            Please try again later or contact support.
+            <br />
+            <span className="font-satoshi font-normal text-gray-700">
+              {error?.data?.error}
+            </span>
+          </p>
+        ) : (
+          article.summary && (
+            <div className="flex flex-col items-center gap-3">
+              <h2 className="font-satoshi text-xl font-bold text-gray-600">
+                Article <span className="blue_gradient">Summary</span>
+              </h2>{" "}
+              <div className="summary_box">
+                <p className="font-inter text-sm font-medium text-gray-700">
+                  {article.summary}
+                </p>
+              </div>
+            </div>
+          )
+        )}
+      </div>
     </section>
   );
 };
