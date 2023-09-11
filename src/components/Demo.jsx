@@ -1,4 +1,4 @@
-import { copy, linkIcon, loader } from "../assets";
+import { copy, linkIcon, loader, tick } from "../assets";
 import { useEffect, useState } from "react";
 import { useLazyGetSummaryQuery } from "../services/article.js";
 
@@ -12,6 +12,7 @@ const Demo = () => {
   const [allArticles, setAllArticles] = useState([]);
 
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const articlesFromLocalStorage = JSON.parse(
@@ -35,6 +36,14 @@ const Demo = () => {
       console.log(newArticle);
       localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
     }
+  };
+
+  const handleCopy = async (copyUrl) => {
+    setCopied(true);
+    await navigator.clipboard.writeText(copyUrl);
+    setTimeout(() => {
+      setCopied(false);
+    }, 3000);
   };
 
   return (
@@ -75,9 +84,9 @@ const Demo = () => {
               onClick={() => setArticle(item)}
               className="link_card"
             >
-              <div className="copy_btn">
+              <div className="copy_btn" onClick={() => handleCopy(item.url)}>
                 <img
-                  src={copy}
+                  src={copied === item.url ? tick : copy}
                   alt="copy_icon"
                   className="h-[40%] w-[40%] object-contain"
                 />
